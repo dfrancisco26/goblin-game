@@ -17,17 +17,14 @@
 
     </header>
     <main>
-        <section class="goblins-defeated-section"><h3>Goblins defeated: 0</h3></section>
-        <form id="add-goblins"></form>
-        <section class="goblins-list-section">
-            <ul>goblins
-                <li>goblin 1</li>
-                <li>goblin 2</li>
-                <li>goblin 3</li>
-            </ul>
+        <section class="goblins-defeated-section"><h3>Goblins defeated: <span id="defeated-gob-span">0</span></h3></section>
+        <form id="add-goblins"><input name="goblin-name" /><button id ='gobButton'>Call out your next opponent!</button>
+        </form>
+    </section>    
+    <section class="goblins-list-section">    
         </section>
         <section class="HP-section">
-            <h2>Your HP: 10</h2>
+            <h2>Your HP: <span id='playerHP'>10</span></h2>
         </section>
     </main>
     <footer>Certified DFTab Production</footer>
