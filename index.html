@@ -17,15 +17,22 @@
 
     </header>
     <main>
-        <section class="goblins-defeated-section"><h3>Goblins defeated: <span id="defeated-gob-span">0</span></h3></section>
-        <form id="add-goblins"><input name="goblin-name" /><button id ='gobButton'>Call out your next opponent!</button>
-        </form>
+        <div class="player-stats">
+        <div class="goblins-defeated-section"><h3>Goblins defeated: <span id="defeated-gob-span">0</span></h3>
+        <div class="defeated-goblins"></div>
+        </div>
+            <div class="HP-section">
+                <h2>Your HP: <span id='playerHP'>10</span></h2>
+                <img src="./assets/warrior.png">
+            </div>
     </section>    
-    <section class="goblins-list-section">    
-        </section>
-        <section class="HP-section">
-            <h2>Your HP: <span id='playerHP'>10</span></h2>
-        </section>
+    <div class="goblin-stats">
+        <div>
+        <form id="add-goblins"><input name="goblin-name" /><button>Call out your next opponent!</button>
+        </form>
+        <div id="goblins"></div>
+        </div>
+        </div>
     </main>
     <footer>Certified DFTab Production</footer>
 
