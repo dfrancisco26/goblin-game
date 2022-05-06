@@ -16,17 +16,17 @@ let currentId = 3;
 
 function goblinClickHandler(goblinData) {
     if (goblinData.hp <= 0) return;
-    if (Math.random() < 0.33) {
+    if (Math.random() < 0.9) {
         goblinData.hp--;
         alert('You swung your sword mightily and struck ' + goblinData.name);
     } else {
         alert('Your blade goes wide and you miss!');
     }
-    if (Math.random() < 0.5) {
+    if (Math.random() < 0.1) {
         playerHP--;
-        alert('You feel a sting as ' + goblinData.name + 'slices you!');
+        alert('You feel a sting as ' + goblinData.name + ' slices you!');
     } else {
-        alert(goblinData.name + 'stumbles and misses!');
+        alert(goblinData.name + ' stumbles and misses!');
     } 
     if (goblinData.hp === 0) {
         defeatedGoblins++;
@@ -37,11 +37,16 @@ function goblinClickHandler(goblinData) {
     playerHPEl.textContent = playerHP;
     defeatedNumberEl.textContent = defeatedGoblins;
 
-    const hpEl = document.getElementById(`goblin-hp-${goblinData.id}`);
-    hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
-    const faceEl = document.getElementById(`goblin-hp-${goblinData.id}`);
-    faceEl.textContent = goblinData.hp > 0 ? '>:3' : 'X_X';
+    const hpEl = goblinData.hp;
+    hpEl.textContent = goblinData.hp;
+    const faceEl = '';
+    if (goblinData.hp !== 0) {
+        faceEl.textContent = '>:)';
+    } else {
+        faceEl.textContent = 'x_x';
+    }
 }
+
 
 
 form.addEventListener('submit', (e) => {

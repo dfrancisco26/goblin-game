@@ -7,11 +7,9 @@ export function renderGoblin(goblinData) {
     goblinEl.classList.add('goblin');
 
     nameEl.textContent = goblinData.name;
-    hpEl.id = `goblin-hp-${goblinData.id}`;
-    hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
+    hpEl.textContent = goblinData.hp;
 
-    faceEl.id = `goblin-face-${goblinData.id}`;
-    faceEl.textContent = goblinData.hp > 0 ? '>:)' : 'x_x';
+    faceEl.textContent = '>:)';
 
     if (goblinData.hp < 0) {
         goblinEl.classList.add('dead');
