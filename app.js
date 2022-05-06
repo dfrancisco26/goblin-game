@@ -4,6 +4,7 @@ const defeatedNumberEl = document.getElementById('defeated-gob-span');
 const playerHPEl = document.getElementById('playerHP');
 const form = document.getElementById('add-goblins');
 const goblinListEl = document.getElementById('goblins');
+
 // let state
 let goblins = [
     { id: 1, name: 'Gob Sumakt', hp: 3 }, 
@@ -15,14 +16,18 @@ let playerHP = 10;
 let currentId = 3;
 
 function goblinClickHandler(goblinData) {
+    const goblinHP = document.getElementById('hpEl');
     if (goblinData.hp <= 0) return;
     if (Math.random() < 0.9) {
         goblinData.hp--;
         alert('You swung your sword mightily and struck ' + goblinData.name);
+        goblinHP.textContent = goblinData.hp;
+
     } else {
         alert('Your blade goes wide and you miss!');
     }
-    if (Math.random() < 0.1) {
+
+    if (Math.random() < 0.7) {
         playerHP--;
         alert('You feel a sting as ' + goblinData.name + ' slices you!');
     } else {
@@ -34,18 +39,16 @@ function goblinClickHandler(goblinData) {
     if (playerHP === 0) {
         alert('Your wounds have become too grave and you faint.');
     }
+    //const gobFace = document.getElementById('gobface');
     playerHPEl.textContent = playerHP;
     defeatedNumberEl.textContent = defeatedGoblins;
-
-    const hpEl = goblinData.hp;
-    hpEl.textContent = goblinData.hp;
-    const faceEl = '';
-    if (goblinData.hp !== 0) {
-        faceEl.textContent = '>:)';
+}   
+/*    if (goblinData.hp !== 0) {
+        gobFace.textContent = '>:)';
     } else {
-        faceEl.textContent = 'x_x';
-    }
-}
+        gobFace.textContent = 'x_x';
+    }    
+}*/
 
 
 
@@ -76,7 +79,7 @@ function displayGoblins() {
         goblinEl.addEventListener('click', () => {
             goblinClickHandler(goblin);
         });
-  
+
         goblinListEl.append(goblinEl);
     }
 }
