@@ -4,7 +4,6 @@ const defeatedNumberEl = document.getElementById('defeated-gob-span');
 const playerHPEl = document.getElementById('playerHP');
 const form = document.getElementById('add-goblins');
 const goblinListEl = document.getElementById('goblins');
-const goblinHP = document.getElementById('hpEl');
 
 // let state
 let goblins = [
