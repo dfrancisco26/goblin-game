@@ -4,6 +4,7 @@ const defeatedNumberEl = document.getElementById('defeated-gob-span');
 const playerHPEl = document.getElementById('playerHP');
 const form = document.getElementById('add-goblins');
 const goblinListEl = document.getElementById('goblins');
+const goblinHP = document.getElementById('hpEl');
 
 // let state
 let goblins = [
@@ -16,39 +17,39 @@ let playerHP = 10;
 let currentId = 3;
 
 function goblinClickHandler(goblinData) {
-    const goblinHP = document.getElementById('hpEl');
     if (goblinData.hp <= 0) return;
-    if (Math.random() < 0.9) {
+    if (Math.random() < 0.33) {
         goblinData.hp--;
-        alert('You swung your sword mightily and struck ' + goblinData.name);
-        goblinHP.textContent = goblinData.hp;
-
+        alert('you swung your sword mightily and struck ' + goblinData.name);
     } else {
-        alert('Your blade goes wide and you miss!');
+        alert('You swung wide at ' + goblinData.name + ' and missed!');
+    }
+    //  - possibly decrement player HP
+    if (Math.random() < 0.5) {
+        playerHP--;
+        alert('You feel a searing heat as ' + goblinData.name + ' cuts you!');
+    } else {
+        alert(goblinData.name + ' swung wide and missed!');
     }
 
-    if (Math.random() < 0.7) {
-        playerHP--;
-        alert('You feel a sting as ' + goblinData.name + ' slices you!');
-    } else {
-        alert(goblinData.name + ' stumbles and misses!');
-    } 
     if (goblinData.hp === 0) {
         defeatedGoblins++;
     }
+
     if (playerHP === 0) {
-        alert('Your wounds have become too grave and you faint.');
+        alert('Your wounds become too grave and you faint...');
+        return;
     }
-    //const gobFace = document.getElementById('gobface');
+    //     - update the DOM with new goblin, player, and defeated goblin state.
     playerHPEl.textContent = playerHP;
     defeatedNumberEl.textContent = defeatedGoblins;
-}   
-/*    if (goblinData.hp !== 0) {
-        gobFace.textContent = '>:)';
-    } else {
-        gobFace.textContent = 'x_x';
-    }    
-}*/
+
+    const hpEl = document.getElementById(`goblin-hp-${goblinData.id}`);
+    hpEl.textContent = goblinData.hp < 0 ? 0 : goblinData.hp;
+
+    const faceEl = document.getElementById(`goblin-face-${goblinData.id}`);
+    faceEl.textContent = goblinData.hp > 0 ? '😈' : '🔥';
+}
 
 
 
