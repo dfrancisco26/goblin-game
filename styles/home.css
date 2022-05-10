@@ -1,1 +1,37 @@
 /* add home page styles here */
+.goblins-defeated-section {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(223, 71, 33);
+    max-width: 30%;
+    margin: 30px 0px 20px 20px;
+    border-radius: 9px
+}
+
+/*.goblins-list-section {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    background-color: rgb(182, 182, 182);
+    margin: 15px 20px 0px 20px;
+    border: 2px;
+    border-radius: 9px;
+}*/
+
+
+html {
+background-image: url(../assets/forest-bg.jpg);
+max-width: 100%;
+max-height: 100%;
+}
+
+#goblins {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(83, 145, 83);
+    border: 3px solid;
+    border-color: black;
+    margin-top: 10px;
+    float: right;
+
+}
